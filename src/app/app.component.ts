@@ -62,9 +62,12 @@ export class AppComponent implements OnInit {
             }
             return { ...s, ui_extra_filters };
         });
+      } else {
+        console.warn("El documento config no existe todavía en Firebase.");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error loading config:", error);
+      alert('Error al cargar datos desde Firebase: ' + (error.message || error));
     }
     this.loading = false;
   }
