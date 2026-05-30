@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
+import { Auth, signInWithEmailAndPassword, signOut, onAuthStateChanged, User } from '@angular/fire/auth';
 
 interface ExtraFilter {
   key: string;
@@ -34,6 +35,13 @@ interface SearchConfig {
 })
 export class AppComponent implements OnInit {
   private firestore = inject(Firestore);
+  private auth = inject(Auth);
+  
+  user: User | null = null;
+  authChecked = false;
+  loginEmail = '';
+  loginPassword = '';
+  loginError = '';
   
   searches: SearchConfig[] = [];
   loading = true;
@@ -44,7 +52,28 @@ export class AppComponent implements OnInit {
   currentIndex = -1;
 
   async ngOnInit() {
-    await this.loadConfig();
+    onAuthStateChanged(this.auth, async (user) => {
+      this.user = user;
+      this.authChecked = true;
+      if (user) {
+        await this.loadConfig();
+      }
+    });
+  }
+
+  async login() {
+    this.loginError = '';
+    try {
+      await signInWithEmailAndPassword(this.auth, this.loginEmail, this.loginPassword);
+    } catch (err: any) {
+      this.loginError = 'Credenciales incorrectas o usuario no encontrado.';
+      console.error(err);
+    }
+  }
+
+  async logout() {
+    await signOut(this.auth);
+    this.searches = [];
   }
 
   async loadConfig() {

@@ -1,9 +1,37 @@
-<div class="container">
+<!-- Pantalla de Login -->
+<div class="container" *ngIf="authChecked && !user" style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
+  <div class="glass-card" style="width: 100%; max-width: 400px;">
+    <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center; font-weight: 600;">Iniciar Sesión</h2>
+    
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="loginEmail" placeholder="admin@wallapop.com">
+    </div>
+    
+    <div class="form-group">
+      <label>Contraseña</label>
+      <input type="password" [(ngModel)]="loginPassword" (keyup.enter)="login()" placeholder="••••••••">
+    </div>
+
+    <div *ngIf="loginError" style="color: var(--danger); font-size: 0.875rem; margin-bottom: 1rem; text-align: center;">
+      {{ loginError }}
+    </div>
+    
+    <button class="btn btn-primary" style="width: 100%; padding: 0.75rem;" (click)="login()">Acceder</button>
+  </div>
+</div>
+
+<!-- Dashboard Principal -->
+<div class="container" *ngIf="authChecked && user">
   <div class="header">
     <h1 class="title">Wallapop Scraper Agent</h1>
-    <button class="btn btn-primary" (click)="openNewSearch()">
-      + Nueva Búsqueda
-    </button>
+    <div>
+      <span style="font-size: 0.875rem; color: var(--text-muted); margin-right: 1rem;">{{ user.email }}</span>
+      <button class="btn btn-ghost" (click)="logout()" style="margin-right: 0.5rem;">Salir</button>
+      <button class="btn btn-primary" (click)="openNewSearch()">
+        + Nueva Búsqueda
+      </button>
+    </div>
   </div>
 
   <div *ngIf="loading" style="text-align: center; padding: 3rem;">
