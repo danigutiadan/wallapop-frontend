@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="header">
+    <h1 class="title">Wallapop Scraper Agent</h1>
+    <button class="btn btn-primary" (click)="openNewSearch()">
+      + Nueva Búsqueda
+    </button>
+  </div>
+
+  <div *ngIf="loading" style="text-align: center; padding: 3rem;">
+    <p style="color: var(--text-muted)">Cargando configuración...</p>
+  </div>
+
+  <div *ngIf="!loading && searches.length === 0" style="text-align: center; padding: 3rem; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border);">
+    <p style="color: var(--text-muted); margin-bottom: 1rem;">No hay búsquedas configuradas.</p>
+    <button class="btn btn-primary" (click)="openNewSearch()">Crear la primera</button>
+  </div>
+
+  <div class="grid grid-2 grid-3" *ngIf="!loading && searches.length > 0">
+    <div class="glass-card" *ngFor="let search of searches; let i = index">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+        <h3 style="font-size: 1.25rem; font-weight: 600;">{{ search.name }}</h3>
+        <div>
+          <button class="btn btn-ghost" style="padding: 0.25rem 0.5rem;" (click)="editSearch(i)">Editar</button>
+          <button class="btn btn-danger" style="padding: 0.25rem 0.5rem;" (click)="deleteSearch(i)">Borrar</button>
+        </div>
+      </div>
+      
+      <div style="color: var(--text-muted); font-size: 0.875rem;">
+        <p *ngIf="search.keywords"><strong>Keywords:</strong> {{ search.keywords }}</p>
+        <p *ngIf="search.min_price || search.max_price">
+          <strong>Precio:</strong> 
+          {{ search.min_price ? search.min_price + '€' : '0€' }} - {{ search.max_price ? search.max_price + '€' : '∞' }}
+        </p>
+        <p *ngIf="search.category_ids"><strong>Categoría ID:</strong> {{ search.category_ids }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Nueva/Editar Búsqueda -->
+<div class="modal-overlay" *ngIf="isModalOpen">
+  <div class="glass-card modal-content">
+    <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 600;">
+      {{ currentIndex >= 0 ? 'Editar Búsqueda' : 'Nueva Búsqueda' }}
+    </h2>
+    
+    <div class="form-group">
+      <label>Nombre Identificativo *</label>
+      <input type="text" [(ngModel)]="currentSearch.name" placeholder="Ej: Coches baratos Madrid">
+    </div>
+
+    <div class="grid grid-2">
+      <div class="form-group">
+        <label>Palabras Clave (Keywords)</label>
+        <input type="text" [(ngModel)]="currentSearch.keywords" placeholder="Ej: audi a3">
+      </div>
+      
+      <div class="form-group">
+        <label>Orden</label>
+        <select [(ngModel)]="currentSearch.order_by">
+          <option value="">Por defecto</option>
+          <option value="newest">Más recientes</option>
+          <option value="price_low_to_high">Precio: de menor a mayor</option>
+          <option value="price_high_to_low">Precio: de mayor a menor</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="form-group">
+        <label>Precio Mínimo (€)</label>
+        <input type="number" [(ngModel)]="currentSearch.min_price" placeholder="Ej: 50">
+      </div>
+      <div class="form-group">
+        <label>Precio Máximo (€)</label>
+        <input type="number" [(ngModel)]="currentSearch.max_price" placeholder="Ej: 500">
+      </div>
+    </div>
+    
+    <div class="grid grid-2">
+      <div class="form-group">
+        <label>Condición (Estado)</label>
+        <select [(ngModel)]="currentSearch.condition">
+          <option value="">Cualquiera</option>
+          <option value="new">Nuevo</option>
+          <option value="as_good_as_new">Como nuevo</option>
+          <option value="good">En buen estado</option>
+          <option value="fair">En condiciones aceptables</option>
+          <option value="has_given_it_all">Lo ha dado todo</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>ID Categoría Wallapop</label>
+        <input type="text" [(ngModel)]="currentSearch.category_ids" placeholder="Ej: 100 para Motor">
+      </div>
+    </div>
+    
+    <hr style="border: 0; border-top: 1px solid var(--border); margin: 2rem 0;">
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <h3 style="font-size: 1.1rem; font-weight: 600;">Filtros Específicos Avanzados</h3>
+      <button class="btn btn-ghost" (click)="addExtraFilter()">+ Añadir Filtro</button>
+    </div>
+    <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 1rem;">
+      Aquí puedes añadir cualquier filtro extra de la URL de Wallapop (ej. brand=audi, model=a3, year=2015).
+    </p>
+    
+    <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+      <button class="btn btn-ghost" style="font-size: 0.75rem;" (click)="presetMotorFilters()">Plantilla: Motor</button>
+      <button class="btn btn-ghost" style="font-size: 0.75rem;" (click)="presetInmobiliariaFilters()">Plantilla: Inmobiliaria</button>
+    </div>
+
+    <div *ngFor="let filter of currentSearch.ui_extra_filters; let i = index" class="flex-gap" style="margin-bottom: 0.5rem;">
+      <input type="text" [(ngModel)]="filter.key" placeholder="Parámetro (ej. brand)">
+      <input type="text" [(ngModel)]="filter.value" placeholder="Valor (ej. BMW)">
+      <button class="btn btn-danger" (click)="removeExtraFilter(i)">X</button>
+    </div>
+    
+    <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 2rem;">
+      <button class="btn btn-ghost" (click)="closeModal()">Cancelar</button>
+      <button class="btn btn-primary" (click)="saveCurrentSearch()" [disabled]="saving">
+        {{ saving ? 'Guardando...' : 'Guardar Búsqueda' }}
+      </button>
+    </div>
+  </div>
+</div>
