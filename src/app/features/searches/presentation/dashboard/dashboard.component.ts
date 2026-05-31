@@ -74,7 +74,7 @@ export class DashboardComponent implements OnInit {
   saving = false;
   
   isModalOpen = false;
-  currentSearch: SearchConfig = { name: '', ui_extra_filters: [] };
+  currentSearch: SearchConfig = { name: '', order_by: 'newest', ui_extra_filters: [] };
   currentIndex = -1;
 
   async ngOnInit() {
@@ -104,7 +104,7 @@ export class DashboardComponent implements OnInit {
   }
 
   openNewSearch() {
-    this.currentSearch = { name: '', ui_extra_filters: [] };
+    this.currentSearch = { name: '', order_by: 'newest', ui_extra_filters: [] };
     this.currentIndex = -1;
     this.isModalOpen = true;
   }
