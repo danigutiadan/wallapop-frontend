@@ -1,120 +1,120 @@
 [
   {
     "id": 100,
-    "name": "Cars",
+    "name": "Coches",
     "subcategories": []
   },
   {
     "id": 14000,
-    "name": "Motorbike",
+    "name": "Motos",
     "subcategories": []
   },
   {
     "id": 12800,
-    "name": "Motors & accessories",
+    "name": "Motor y accesorios",
     "subcategories": [
       {
         "id": 10167,
-        "name": "Car & van spare parts"
+        "name": "Recambios de coches y furgonetas"
       },
       {
         "id": 10164,
-        "name": "GPS & electronics"
+        "name": "GPS y electrónica"
       },
       {
         "id": 10165,
-        "name": "Mechanical tools"
+        "name": "Herramientas mecánicas"
       },
       {
         "id": 10168,
-        "name": "Motorbike and four-wheeler spare parts"
+        "name": "Recambios de motos y quads"
       },
       {
         "id": 10166,
-        "name": "Others"
+        "name": "Otros"
       }
     ]
   },
   {
     "id": 12465,
-    "name": "Fashion & accessories",
+    "name": "Moda y accesorios",
     "subcategories": [
       {
         "id": 11002,
-        "name": "Women"
+        "name": "Mujer"
       },
       {
         "id": 11003,
-        "name": "Men"
+        "name": "Hombre"
       },
       {
         "id": 10436,
-        "name": "Accessories"
+        "name": "Accesorios"
       },
       {
         "id": 10156,
-        "name": "Jewellery"
+        "name": "Joyería"
       },
       {
         "id": 10437,
-        "name": "Beauty"
+        "name": "Belleza"
       }
     ]
   },
   {
     "id": 200,
-    "name": "Real Estate",
+    "name": "Inmobiliaria",
     "subcategories": []
   },
   {
     "id": 24200,
-    "name": "Technology & electronics",
+    "name": "Informática y electrónica",
     "subcategories": [
       {
         "id": 10206,
-        "name": "Image: TVs & projectors"
+        "name": "Imagen: TVs y proyectores"
       },
       {
         "id": 24149,
-        "name": "Sound: headphones & speakers"
+        "name": "Sonido: auriculares y altavoces"
       },
       {
         "id": 10200,
-        "name": "Photography: cameras & drones"
+        "name": "Fotografía: cámaras y drones"
       },
       {
         "id": 24201,
-        "name": "Phones: mobiles & smartwatches"
+        "name": "Telefonía: móviles y smartwatches"
       },
       {
         "id": 24202,
-        "name": "Computing: computers & tablets"
+        "name": "Informática: ordenadores y tablets"
       },
       {
         "id": 24203,
-        "name": "Gaming: consoles & video games"
+        "name": "Gaming: consolas y videojuegos"
       }
     ]
   },
   {
     "id": 12579,
-    "name": "Sports & leisure",
+    "name": "Deporte y ocio",
     "subcategories": [
       {
         "id": 10094,
-        "name": "Basketball"
+        "name": "Baloncesto"
       },
       {
         "id": 10101,
-        "name": "Crafts Arts & crafts"
+        "name": "Artesanía y manualidades"
       },
       {
         "id": 10096,
-        "name": "Exercise bikes"
+        "name": "Bicicletas estáticas"
       },
       {
         "id": 10097,
-        "name": "Fitness, running & yoga"
+        "name": "Fitness, running y yoga"
       },
       {
         "id": 10099,
@@ -122,19 +122,19 @@
       },
       {
         "id": 10095,
-        "name": "Handball"
+        "name": "Balonmano"
       },
       {
         "id": 10102,
-        "name": "Mountain & ski"
+        "name": "Montaña y esquí"
       },
       {
         "id": 10105,
-        "name": "Others sports"
+        "name": "Otros deportes"
       },
       {
         "id": 10100,
-        "name": "Recreational & board games"
+        "name": "Juegos recreativos y de mesa"
       },
       {
         "id": 10107,
@@ -142,385 +142,385 @@
       },
       {
         "id": 10106,
-        "name": "Scooters & skating"
+        "name": "Patinetes y patinaje"
       },
       {
         "id": 10098,
-        "name": "Soccer"
+        "name": "Fútbol"
       },
       {
         "id": 10103,
-        "name": "Swimming & pool accessories"
+        "name": "Natación y accesorios de piscina"
       },
       {
         "id": 10108,
-        "name": "Tennis & paddle tennis"
+        "name": "Tenis y pádel"
       },
       {
         "id": 10109,
-        "name": "Volleyball"
+        "name": "Voleibol"
       },
       {
         "id": 10104,
-        "name": "Others"
+        "name": "Otros"
       }
     ]
   },
   {
     "id": 17000,
-    "name": "Bikes",
+    "name": "Bicicletas",
     "subcategories": [
       {
         "id": 10055,
-        "name": "Bike accessories"
+        "name": "Accesorios para bicicletas"
       },
       {
         "id": 10058,
-        "name": "Bike components & spare parts"
+        "name": "Componentes y recambios de bicicletas"
       },
       {
         "id": 10056,
-        "name": "Bikes & tricycles"
+        "name": "Bicicletas y triciclos"
       },
       {
         "id": 10059,
-        "name": "Protective gear & clothing"
+        "name": "Ropa y equipamiento de protección"
       },
       {
         "id": 10057,
-        "name": "Others"
+        "name": "Otros"
       }
     ]
   },
   {
     "id": 12467,
-    "name": "Home & garden",
+    "name": "Hogar y jardín",
     "subcategories": [
       {
         "id": 10125,
-        "name": "Furniture and organization"
+        "name": "Muebles y organización"
       },
       {
         "id": 10119,
-        "name": "Bathroom and accessories"
+        "name": "Baño y accesorios"
       },
       {
         "id": 10120,
-        "name": "Kitchen"
+        "name": "Cocina"
       },
       {
         "id": 10122,
-        "name": "Decoration and mirrors"
+        "name": "Decoración y espejos"
       },
       {
         "id": 10123,
-        "name": "Lighting"
+        "name": "Iluminación"
       },
       {
         "id": 10124,
-        "name": "Garden and outdoors"
+        "name": "Jardín y exteriores"
       },
       {
         "id": 24276,
-        "name": "Heating and air conditioning"
+        "name": "Calefacción y aire acondicionado"
       },
       {
         "id": 10118,
-        "name": "Pet supplies"
+        "name": "Artículos para mascotas"
       }
     ]
   },
   {
     "id": 13100,
-    "name": "Appliances",
+    "name": "Electrodomésticos",
     "subcategories": [
       {
         "id": 10111,
-        "name": "Kitchen appliances"
+        "name": "Electrodomésticos de cocina"
       },
       {
         "id": 10112,
-        "name": "Laundry & ironing"
+        "name": "Lavado y planchado"
       },
       {
         "id": 10114,
-        "name": "Replacement parts"
+        "name": "Piezas de repuesto"
       },
       {
         "id": 10113,
-        "name": "Small appliances"
+        "name": "Pequeños electrodomésticos"
       },
       {
         "id": 10115,
-        "name": "Vitroceramic hobs"
+        "name": "Placas vitrocerámicas"
       },
       {
         "id": 10441,
-        "name": "Others"
+        "name": "Otros"
       }
     ]
   },
   {
     "id": 12463,
-    "name": "Movies, books & music",
+    "name": "Cine, libros y música",
     "subcategories": [
       {
         "id": 24003,
-        "name": "Books, comics & magazines"
+        "name": "Libros, cómics y revistas"
       },
       {
         "id": 24002,
-        "name": "Movies & series"
+        "name": "Películas y series"
       },
       {
         "id": 24001,
-        "name": "Music"
+        "name": "Música"
       }
     ]
   },
   {
     "id": 12461,
-    "name": "Baby & child",
+    "name": "Niños y bebés",
     "subcategories": [
       {
         "id": 10178,
-        "name": "Baby feeding"
+        "name": "Alimentación del bebé"
       },
       {
         "id": 10185,
-        "name": "Baby furniture"
+        "name": "Mobiliario para bebés"
       },
       {
         "id": 10181,
-        "name": "Baby transport"
+        "name": "Transporte del bebé"
       },
       {
         "id": 10177,
-        "name": "Bath accessories"
+        "name": "Accesorios de baño"
       },
       {
         "id": 10187,
-        "name": "Children's clothes"
+        "name": "Ropa para niños"
       },
       {
         "id": 10183,
-        "name": "Children's costumes"
+        "name": "Disfraces para niños"
       },
       {
         "id": 10182,
-        "name": "Cots & beds"
+        "name": "Cunas y camas"
       },
       {
         "id": 10189,
-        "name": "High chairs & baby walkers"
+        "name": "Tronas y andadores"
       },
       {
         "id": 10179,
-        "name": "Maternity "
+        "name": "Maternidad"
       },
       {
         "id": 10188,
-        "name": "Safety & care"
+        "name": "Seguridad y cuidado"
       },
       {
         "id": 10180,
-        "name": "School supplies"
+        "name": "Material escolar"
       },
       {
         "id": 10184,
-        "name": "Toys, games & teddies"
+        "name": "Juguetes, juegos y peluches"
       },
       {
         "id": 10186,
-        "name": "Others"
+        "name": "Otros"
       }
     ]
   },
   {
     "id": 18000,
-    "name": "Collectibles & Art",
+    "name": "Coleccionismo y arte",
     "subcategories": [
       {
         "id": 10071,
-        "name": "Antiques"
+        "name": "Antigüedades"
       },
       {
         "id": 10075,
-        "name": "Cars & motorbikes"
+        "name": "Coches y motos"
       },
       {
         "id": 10081,
-        "name": "Coins & bills"
+        "name": "Monedas y billetes"
       },
       {
         "id": 10073,
-        "name": "Desk supplies"
+        "name": "Material de escritorio"
       },
       {
         "id": 10074,
-        "name": "Flags"
+        "name": "Banderas"
       },
       {
         "id": 10072,
-        "name": "Handcrafts & decoration"
+        "name": "Artesanía y decoración"
       },
       {
         "id": 10080,
-        "name": "Key holders"
+        "name": "Llaveros"
       },
       {
         "id": 10079,
-        "name": "Magnets"
+        "name": "Imanes"
       },
       {
         "id": 10083,
-        "name": "Playing cards"
+        "name": "Cartas"
       },
       {
         "id": 10085,
-        "name": "Postcards & souvenirs"
+        "name": "Postales y souvenirs"
       },
       {
         "id": 10076,
-        "name": "Sporting collectibles"
+        "name": "Coleccionismo deportivo"
       },
       {
         "id": 10078,
-        "name": "Stamp collecting"
+        "name": "Filatelia"
       },
       {
         "id": 10082,
-        "name": "Toy collecting"
+        "name": "Coleccionismo de juguetes"
       },
       {
         "id": 10077,
-        "name": "Wartime collectibles"
+        "name": "Coleccionismo militar"
       },
       {
         "id": 10086,
-        "name": "Watches"
+        "name": "Relojes"
       },
       {
         "id": 10084,
-        "name": "Others"
+        "name": "Otros"
       }
     ]
   },
   {
     "id": 19000,
-    "name": "Construction",
+    "name": "Construcción",
     "subcategories": [
       {
         "id": 10138,
-        "name": "Balconies"
+        "name": "Balcones"
       },
       {
         "id": 10149,
-        "name": "Doors & windows"
+        "name": "Puertas y ventanas"
       },
       {
         "id": 10141,
-        "name": "Electricity & home lighting"
+        "name": "Electricidad e iluminación del hogar"
       },
       {
         "id": 10147,
-        "name": "Flooring & paving"
+        "name": "Suelos y pavimentos"
       },
       {
         "id": 10143,
-        "name": "Hardware"
+        "name": "Ferretería"
       },
       {
         "id": 10142,
-        "name": "Ladder & scaffoldings"
+        "name": "Escaleras y andamios"
       },
       {
         "id": 10148,
-        "name": "Paints & varnishes"
+        "name": "Pinturas y barnices"
       },
       {
         "id": 10144,
-        "name": "Tools & machinery"
+        "name": "Herramientas y maquinaria"
       },
       {
         "id": 10145,
-        "name": "Wood & other materials"
+        "name": "Madera y otros materiales"
       },
       {
         "id": 10146,
-        "name": "Others"
+        "name": "Otros"
       }
     ]
   },
   {
     "id": 20000,
-    "name": "Agriculture & industrial",
+    "name": "Agricultura e industria",
     "subcategories": [
       {
         "id": 10128,
-        "name": "Agriculture & farming"
+        "name": "Agricultura y ganadería"
       },
       {
         "id": 10129,
-        "name": "Industry"
+        "name": "Industria"
       }
     ]
   },
   {
     "id": 21000,
-    "name": "Jobs",
+    "name": "Empleo",
     "subcategories": [
       {
         "id": 10117,
-        "name": "Job offers"
+        "name": "Ofertas de empleo"
       },
       {
         "id": 10116,
-        "name": "Job seeking"
+        "name": "Búsqueda de empleo"
       }
     ]
   },
   {
     "id": 13200,
-    "name": "Services",
+    "name": "Servicios",
     "subcategories": [
       {
         "id": 10191,
-        "name": "Carers & babysitters"
+        "name": "Cuidadores y canguros"
       },
       {
         "id": 10190,
-        "name": "Classes & lessons"
+        "name": "Clases y lecciones"
       },
       {
         "id": 10195,
-        "name": "Cleaning services"
+        "name": "Servicios de limpieza"
       },
       {
         "id": 10196,
-        "name": "Housework services"
+        "name": "Servicios domésticos"
       },
       {
         "id": 10192,
-        "name": "Moving & transport"
+        "name": "Mudanzas y transportes"
       },
       {
         "id": 10194,
-        "name": "Repairs"
+        "name": "Reparaciones"
       },
       {
         "id": 10197,
-        "name": "Therapies & personal growth"
+        "name": "Terapias y crecimiento personal"
       },
       {
         "id": 10193,
-        "name": "Others"
+        "name": "Otros"
       }
     ]
   },
   {
     "id": 12485,
-    "name": "Other",
+    "name": "Otros",
     "subcategories": []
   }
 ]
