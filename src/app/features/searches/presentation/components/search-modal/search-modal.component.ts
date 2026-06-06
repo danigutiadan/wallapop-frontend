@@ -95,14 +95,26 @@ import categoryAttributesData from '../../../domain/category-attributes.json';
         </p>
         
         <div *ngFor="let filter of search.ui_extra_filters; let i = index" class="flex-gap" style="margin-bottom: 0.5rem;">
-          <select *ngIf="availableAttributes.length > 0" [(ngModel)]="filter.key">
+          <select *ngIf="availableAttributes.length > 0" [(ngModel)]="filter.key" (ngModelChange)="onFilterKeyChange(filter)">
             <option value="" disabled>Selecciona un filtro</option>
             <option *ngFor="let attr of availableAttributes" [value]="attr">
-              {{ attr }}
+              {{ attributeTranslations[attr] || attr }}
             </option>
           </select>
           <input *ngIf="availableAttributes.length === 0" type="text" [(ngModel)]="filter.key" placeholder="Parámetro (ej. brand)">
-          <input type="text" [(ngModel)]="filter.value" placeholder="Valor (ej. BMW)">
+
+          <ng-container *ngIf="filterDropdowns[filter.key]; else textInput">
+            <select [(ngModel)]="filter.value">
+              <option value="" disabled>Selecciona un valor</option>
+              <option *ngFor="let option of filterDropdowns[filter.key]" [value]="option.value">
+                {{ option.label }}
+              </option>
+            </select>
+          </ng-container>
+          <ng-template #textInput>
+            <input type="text" [(ngModel)]="filter.value" placeholder="Valor (ej. BMW)">
+          </ng-template>
+
           <button class="btn btn-danger" (click)="removeExtraFilter(i)">X</button>
         </div>
         
@@ -120,6 +132,92 @@ export class SearchModalComponent {
   @Input() search!: SearchConfig;
   @Input() isEditing = false;
   @Input() saving = false;
+
+  attributeTranslations: Record<string, string> = {
+    "brand": "Marca",
+    "model": "Modelo",
+    "version": "Versión",
+    "color": "Color",
+    "warranty": "Garantía",
+    "license_plate": "Matrícula",
+    "year": "Año",
+    "seats": "Plazas",
+    "doors": "Puertas",
+    "km": "Kilómetros",
+    "horse_power": "Caballos",
+    "financed_price": "Precio financiado",
+    "engine_displacement": "Cilindrada",
+    "subcategory": "Subcategoría",
+    "subcategory_lv2": "Subcategoría (Nivel 2)",
+    "size": "Talla",
+    "operation": "Operación",
+    "type": "Tipo",
+    "location": "Ubicación",
+    "condition": "Condición",
+    "surface": "Superficie",
+    "rooms": "Habitaciones",
+    "bathrooms": "Baños",
+    "garage": "Garaje",
+    "terrace": "Terraza",
+    "elevator": "Ascensor",
+    "pool": "Piscina",
+    "garden": "Jardín",
+    "description": "Descripción",
+    "is_refurbished": "Reacondicionado",
+    "storage_capacity": "Capacidad de almacenamiento",
+    "height_cm": "Alto (cm)",
+    "width_cm": "Ancho (cm)",
+    "length_cm": "Largo (cm)",
+    "isbn": "ISBN",
+    "author": "Autor",
+    "publisher": "Editorial",
+    "language": "Idioma",
+    "book_format": "Formato del libro",
+    "is_pack": "Es pack",
+    "excluded": "Excluido"
+  };
+
+  filterDropdowns: Record<string, {value: string, label: string}[]> = {
+    "operation": [
+      { value: "sale", label: "Venta" },
+      { value: "rent", label: "Alquiler" }
+    ],
+    "type": [
+      { value: "apartment", label: "Piso" },
+      { value: "house", label: "Casa/Chalet" },
+      { value: "room", label: "Habitación" },
+      { value: "garage", label: "Garaje" },
+      { value: "office", label: "Oficina" },
+      { value: "land", label: "Terreno" },
+      { value: "storage", label: "Trastero" }
+    ],
+    "rooms": [
+      { value: "1", label: "1" },
+      { value: "2", label: "2" },
+      { value: "3", label: "3" },
+      { value: "4", label: "4 o más" }
+    ],
+    "bathrooms": [
+      { value: "1", label: "1" },
+      { value: "2", label: "2" },
+      { value: "3", label: "3 o más" }
+    ],
+    "garage": [
+      { value: "true", label: "Sí" }
+    ],
+    "terrace": [
+      { value: "true", label: "Sí" }
+    ],
+    "elevator": [
+      { value: "true", label: "Sí" }
+    ],
+    "pool": [
+      { value: "true", label: "Sí" }
+    ],
+    "garden": [
+      { value: "true", label: "Sí" }
+    ]
+  };
   
   @Output() saveSearch = new EventEmitter<SearchConfig>();
   @Output() close = new EventEmitter<void>();
@@ -166,6 +264,10 @@ export class SearchModalComponent {
       this.search.ui_extra_filters = [];
     }
     this.search.ui_extra_filters.push({ key: '', value: '' });
+  }
+
+  onFilterKeyChange(filter: any) {
+    filter.value = '';
   }
 
   removeExtraFilter(index: number) {
