@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SearchConfig } from '../../../domain/search-config.model';
+import categoriesData from '../../../domain/categories.json';
+import categoryAttributesData from '../../../domain/category-attributes.json';
 
 @Component({
   selector: 'app-search-modal',
@@ -60,8 +62,25 @@ import { SearchConfig } from '../../../domain/search-config.model';
             </select>
           </div>
           <div class="form-group">
-            <label>ID Categoría Wallapop</label>
-            <input type="text" [(ngModel)]="search.category_ids" placeholder="Ej: 100 para Motor">
+            <label>Categoría</label>
+            <select [(ngModel)]="search.category_ids" (ngModelChange)="onCategoryChange()">
+              <option value="">Todas las categorías</option>
+              <option *ngFor="let cat of categories" [value]="cat.id">
+                {{ cat.name }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-2" *ngIf="subcategories.length > 0">
+          <div class="form-group">
+            <label>Subcategoría</label>
+            <select [(ngModel)]="search.object_type_id" (ngModelChange)="onSubcategoryChange()">
+              <option value="">Cualquiera</option>
+              <option *ngFor="let sub of subcategories" [value]="sub.id">
+                {{ sub.name }}
+              </option>
+            </select>
           </div>
         </div>
         
@@ -75,13 +94,14 @@ import { SearchConfig } from '../../../domain/search-config.model';
           Aquí puedes añadir cualquier filtro extra de la URL de Wallapop (ej. brand=audi, model=a3, year=2015).
         </p>
         
-        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
-          <button class="btn btn-ghost" style="font-size: 0.75rem;" (click)="presetMotorFilters()">Plantilla: Motor</button>
-          <button class="btn btn-ghost" style="font-size: 0.75rem;" (click)="presetInmobiliariaFilters()">Plantilla: Inmobiliaria</button>
-        </div>
-
         <div *ngFor="let filter of search.ui_extra_filters; let i = index" class="flex-gap" style="margin-bottom: 0.5rem;">
-          <input type="text" [(ngModel)]="filter.key" placeholder="Parámetro (ej. brand)">
+          <select *ngIf="availableAttributes.length > 0" [(ngModel)]="filter.key">
+            <option value="" disabled>Selecciona un filtro</option>
+            <option *ngFor="let attr of availableAttributes" [value]="attr">
+              {{ attr }}
+            </option>
+          </select>
+          <input *ngIf="availableAttributes.length === 0" type="text" [(ngModel)]="filter.key" placeholder="Parámetro (ej. brand)">
           <input type="text" [(ngModel)]="filter.value" placeholder="Valor (ej. BMW)">
           <button class="btn btn-danger" (click)="removeExtraFilter(i)">X</button>
         </div>
@@ -104,6 +124,43 @@ export class SearchModalComponent {
   @Output() saveSearch = new EventEmitter<SearchConfig>();
   @Output() close = new EventEmitter<void>();
 
+  categories = categoriesData;
+  subcategories: {id: number, name: string}[] = [];
+  availableAttributes: string[] = [];
+
+  ngOnInit() {
+    this.updateSubcategories();
+    this.updateAvailableAttributes();
+  }
+
+  onCategoryChange() {
+    this.search.object_type_id = ''; // Reset subcategory when category changes
+    this.updateSubcategories();
+    this.updateAvailableAttributes();
+  }
+
+  onSubcategoryChange() {
+    this.updateAvailableAttributes();
+  }
+
+  updateSubcategories() {
+    if (!this.search.category_ids) {
+      this.subcategories = [];
+      return;
+    }
+    const selectedCat = this.categories.find(c => c.id.toString() === this.search.category_ids?.toString());
+    this.subcategories = selectedCat?.subcategories || [];
+  }
+
+  updateAvailableAttributes() {
+    const activeId = this.search.object_type_id || this.search.category_ids;
+    if (activeId) {
+      this.availableAttributes = (categoryAttributesData as any)[activeId.toString()] || [];
+    } else {
+      this.availableAttributes = [];
+    }
+  }
+
   addExtraFilter() {
     if (!this.search.ui_extra_filters) {
       this.search.ui_extra_filters = [];
@@ -113,28 +170,6 @@ export class SearchModalComponent {
 
   removeExtraFilter(index: number) {
     this.search.ui_extra_filters?.splice(index, 1);
-  }
-
-  presetMotorFilters() {
-    this.addSpecificFilter('brand', '');
-    this.addSpecificFilter('model', '');
-    this.addSpecificFilter('year', '');
-    this.addSpecificFilter('km', '');
-  }
-
-  presetInmobiliariaFilters() {
-    this.addSpecificFilter('rooms', '');
-    this.addSpecificFilter('bathrooms', '');
-    this.addSpecificFilter('surface', '');
-  }
-
-  private addSpecificFilter(key: string, value: string) {
-    if (!this.search.ui_extra_filters) {
-      this.search.ui_extra_filters = [];
-    }
-    if (!this.search.ui_extra_filters.some(f => f.key === key)) {
-      this.search.ui_extra_filters.push({ key, value });
-    }
   }
 
   save() {
