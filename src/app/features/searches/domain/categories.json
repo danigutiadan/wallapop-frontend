@@ -1,0 +1,526 @@
+[
+  {
+    "id": 100,
+    "name": "Cars",
+    "subcategories": []
+  },
+  {
+    "id": 14000,
+    "name": "Motorbike",
+    "subcategories": []
+  },
+  {
+    "id": 12800,
+    "name": "Motors & accessories",
+    "subcategories": [
+      {
+        "id": 10167,
+        "name": "Car & van spare parts"
+      },
+      {
+        "id": 10164,
+        "name": "GPS & electronics"
+      },
+      {
+        "id": 10165,
+        "name": "Mechanical tools"
+      },
+      {
+        "id": 10168,
+        "name": "Motorbike and four-wheeler spare parts"
+      },
+      {
+        "id": 10166,
+        "name": "Others"
+      }
+    ]
+  },
+  {
+    "id": 12465,
+    "name": "Fashion & accessories",
+    "subcategories": [
+      {
+        "id": 11002,
+        "name": "Women"
+      },
+      {
+        "id": 11003,
+        "name": "Men"
+      },
+      {
+        "id": 10436,
+        "name": "Accessories"
+      },
+      {
+        "id": 10156,
+        "name": "Jewellery"
+      },
+      {
+        "id": 10437,
+        "name": "Beauty"
+      }
+    ]
+  },
+  {
+    "id": 200,
+    "name": "Real Estate",
+    "subcategories": []
+  },
+  {
+    "id": 24200,
+    "name": "Technology & electronics",
+    "subcategories": [
+      {
+        "id": 10206,
+        "name": "Image: TVs & projectors"
+      },
+      {
+        "id": 24149,
+        "name": "Sound: headphones & speakers"
+      },
+      {
+        "id": 10200,
+        "name": "Photography: cameras & drones"
+      },
+      {
+        "id": 24201,
+        "name": "Phones: mobiles & smartwatches"
+      },
+      {
+        "id": 24202,
+        "name": "Computing: computers & tablets"
+      },
+      {
+        "id": 24203,
+        "name": "Gaming: consoles & video games"
+      }
+    ]
+  },
+  {
+    "id": 12579,
+    "name": "Sports & leisure",
+    "subcategories": [
+      {
+        "id": 10094,
+        "name": "Basketball"
+      },
+      {
+        "id": 10101,
+        "name": "Crafts Arts & crafts"
+      },
+      {
+        "id": 10096,
+        "name": "Exercise bikes"
+      },
+      {
+        "id": 10097,
+        "name": "Fitness, running & yoga"
+      },
+      {
+        "id": 10099,
+        "name": "Golf"
+      },
+      {
+        "id": 10095,
+        "name": "Handball"
+      },
+      {
+        "id": 10102,
+        "name": "Mountain & ski"
+      },
+      {
+        "id": 10105,
+        "name": "Others sports"
+      },
+      {
+        "id": 10100,
+        "name": "Recreational & board games"
+      },
+      {
+        "id": 10107,
+        "name": "Rugby"
+      },
+      {
+        "id": 10106,
+        "name": "Scooters & skating"
+      },
+      {
+        "id": 10098,
+        "name": "Soccer"
+      },
+      {
+        "id": 10103,
+        "name": "Swimming & pool accessories"
+      },
+      {
+        "id": 10108,
+        "name": "Tennis & paddle tennis"
+      },
+      {
+        "id": 10109,
+        "name": "Volleyball"
+      },
+      {
+        "id": 10104,
+        "name": "Others"
+      }
+    ]
+  },
+  {
+    "id": 17000,
+    "name": "Bikes",
+    "subcategories": [
+      {
+        "id": 10055,
+        "name": "Bike accessories"
+      },
+      {
+        "id": 10058,
+        "name": "Bike components & spare parts"
+      },
+      {
+        "id": 10056,
+        "name": "Bikes & tricycles"
+      },
+      {
+        "id": 10059,
+        "name": "Protective gear & clothing"
+      },
+      {
+        "id": 10057,
+        "name": "Others"
+      }
+    ]
+  },
+  {
+    "id": 12467,
+    "name": "Home & garden",
+    "subcategories": [
+      {
+        "id": 10125,
+        "name": "Furniture and organization"
+      },
+      {
+        "id": 10119,
+        "name": "Bathroom and accessories"
+      },
+      {
+        "id": 10120,
+        "name": "Kitchen"
+      },
+      {
+        "id": 10122,
+        "name": "Decoration and mirrors"
+      },
+      {
+        "id": 10123,
+        "name": "Lighting"
+      },
+      {
+        "id": 10124,
+        "name": "Garden and outdoors"
+      },
+      {
+        "id": 24276,
+        "name": "Heating and air conditioning"
+      },
+      {
+        "id": 10118,
+        "name": "Pet supplies"
+      }
+    ]
+  },
+  {
+    "id": 13100,
+    "name": "Appliances",
+    "subcategories": [
+      {
+        "id": 10111,
+        "name": "Kitchen appliances"
+      },
+      {
+        "id": 10112,
+        "name": "Laundry & ironing"
+      },
+      {
+        "id": 10114,
+        "name": "Replacement parts"
+      },
+      {
+        "id": 10113,
+        "name": "Small appliances"
+      },
+      {
+        "id": 10115,
+        "name": "Vitroceramic hobs"
+      },
+      {
+        "id": 10441,
+        "name": "Others"
+      }
+    ]
+  },
+  {
+    "id": 12463,
+    "name": "Movies, books & music",
+    "subcategories": [
+      {
+        "id": 24003,
+        "name": "Books, comics & magazines"
+      },
+      {
+        "id": 24002,
+        "name": "Movies & series"
+      },
+      {
+        "id": 24001,
+        "name": "Music"
+      }
+    ]
+  },
+  {
+    "id": 12461,
+    "name": "Baby & child",
+    "subcategories": [
+      {
+        "id": 10178,
+        "name": "Baby feeding"
+      },
+      {
+        "id": 10185,
+        "name": "Baby furniture"
+      },
+      {
+        "id": 10181,
+        "name": "Baby transport"
+      },
+      {
+        "id": 10177,
+        "name": "Bath accessories"
+      },
+      {
+        "id": 10187,
+        "name": "Children's clothes"
+      },
+      {
+        "id": 10183,
+        "name": "Children's costumes"
+      },
+      {
+        "id": 10182,
+        "name": "Cots & beds"
+      },
+      {
+        "id": 10189,
+        "name": "High chairs & baby walkers"
+      },
+      {
+        "id": 10179,
+        "name": "Maternity "
+      },
+      {
+        "id": 10188,
+        "name": "Safety & care"
+      },
+      {
+        "id": 10180,
+        "name": "School supplies"
+      },
+      {
+        "id": 10184,
+        "name": "Toys, games & teddies"
+      },
+      {
+        "id": 10186,
+        "name": "Others"
+      }
+    ]
+  },
+  {
+    "id": 18000,
+    "name": "Collectibles & Art",
+    "subcategories": [
+      {
+        "id": 10071,
+        "name": "Antiques"
+      },
+      {
+        "id": 10075,
+        "name": "Cars & motorbikes"
+      },
+      {
+        "id": 10081,
+        "name": "Coins & bills"
+      },
+      {
+        "id": 10073,
+        "name": "Desk supplies"
+      },
+      {
+        "id": 10074,
+        "name": "Flags"
+      },
+      {
+        "id": 10072,
+        "name": "Handcrafts & decoration"
+      },
+      {
+        "id": 10080,
+        "name": "Key holders"
+      },
+      {
+        "id": 10079,
+        "name": "Magnets"
+      },
+      {
+        "id": 10083,
+        "name": "Playing cards"
+      },
+      {
+        "id": 10085,
+        "name": "Postcards & souvenirs"
+      },
+      {
+        "id": 10076,
+        "name": "Sporting collectibles"
+      },
+      {
+        "id": 10078,
+        "name": "Stamp collecting"
+      },
+      {
+        "id": 10082,
+        "name": "Toy collecting"
+      },
+      {
+        "id": 10077,
+        "name": "Wartime collectibles"
+      },
+      {
+        "id": 10086,
+        "name": "Watches"
+      },
+      {
+        "id": 10084,
+        "name": "Others"
+      }
+    ]
+  },
+  {
+    "id": 19000,
+    "name": "Construction",
+    "subcategories": [
+      {
+        "id": 10138,
+        "name": "Balconies"
+      },
+      {
+        "id": 10149,
+        "name": "Doors & windows"
+      },
+      {
+        "id": 10141,
+        "name": "Electricity & home lighting"
+      },
+      {
+        "id": 10147,
+        "name": "Flooring & paving"
+      },
+      {
+        "id": 10143,
+        "name": "Hardware"
+      },
+      {
+        "id": 10142,
+        "name": "Ladder & scaffoldings"
+      },
+      {
+        "id": 10148,
+        "name": "Paints & varnishes"
+      },
+      {
+        "id": 10144,
+        "name": "Tools & machinery"
+      },
+      {
+        "id": 10145,
+        "name": "Wood & other materials"
+      },
+      {
+        "id": 10146,
+        "name": "Others"
+      }
+    ]
+  },
+  {
+    "id": 20000,
+    "name": "Agriculture & industrial",
+    "subcategories": [
+      {
+        "id": 10128,
+        "name": "Agriculture & farming"
+      },
+      {
+        "id": 10129,
+        "name": "Industry"
+      }
+    ]
+  },
+  {
+    "id": 21000,
+    "name": "Jobs",
+    "subcategories": [
+      {
+        "id": 10117,
+        "name": "Job offers"
+      },
+      {
+        "id": 10116,
+        "name": "Job seeking"
+      }
+    ]
+  },
+  {
+    "id": 13200,
+    "name": "Services",
+    "subcategories": [
+      {
+        "id": 10191,
+        "name": "Carers & babysitters"
+      },
+      {
+        "id": 10190,
+        "name": "Classes & lessons"
+      },
+      {
+        "id": 10195,
+        "name": "Cleaning services"
+      },
+      {
+        "id": 10196,
+        "name": "Housework services"
+      },
+      {
+        "id": 10192,
+        "name": "Moving & transport"
+      },
+      {
+        "id": 10194,
+        "name": "Repairs"
+      },
+      {
+        "id": 10197,
+        "name": "Therapies & personal growth"
+      },
+      {
+        "id": 10193,
+        "name": "Others"
+      }
+    ]
+  },
+  {
+    "id": 12485,
+    "name": "Other",
+    "subcategories": []
+  }
+]

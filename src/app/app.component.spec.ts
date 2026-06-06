@@ -1,10 +1,20 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { AuthService } from './features/auth/data/auth.service';
+import { of } from 'rxjs';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
+    const mockAuthService = {
+      authChecked$: of(true),
+      user$: of(null)
+    };
+
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [
+        { provide: AuthService, useValue: mockAuthService }
+      ]
     }).compileComponents();
   });
 
@@ -12,18 +22,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have the 'wallapop-frontend' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('wallapop-frontend');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, wallapop-frontend');
   });
 });

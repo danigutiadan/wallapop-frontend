@@ -1,0 +1,122 @@
+{
+  "100": [
+    "brand",
+    "model",
+    "version",
+    "color",
+    "warranty",
+    "license_plate",
+    "year",
+    "seats",
+    "doors",
+    "km",
+    "horse_power",
+    "financed_price"
+  ],
+  "14000": [
+    "engine_displacement",
+    "year",
+    "km",
+    "brand",
+    "model",
+    "horse_power"
+  ],
+  "12465": [
+    "subcategory",
+    "subcategory_lv2",
+    "brand",
+    "size",
+    "color"
+  ],
+  "11002": [
+    "excluded"
+  ],
+  "11003": [
+    "excluded"
+  ],
+  "200": [
+    "operation",
+    "type",
+    "location",
+    "condition",
+    "surface",
+    "rooms",
+    "bathrooms",
+    "garage",
+    "terrace",
+    "elevator",
+    "pool",
+    "garden",
+    "description"
+  ],
+  "24200": [
+    "subcategory",
+    "subcategory_lv2",
+    "brand",
+    "model",
+    "is_refurbished",
+    "color",
+    "storage_capacity",
+    "excluded"
+  ],
+  "10206": [
+    "excluded"
+  ],
+  "24149": [
+    "excluded"
+  ],
+  "10200": [
+    "excluded"
+  ],
+  "24201": [
+    "excluded"
+  ],
+  "24202": [
+    "excluded"
+  ],
+  "24203": [
+    "excluded"
+  ],
+  "12467": [
+    "subcategory",
+    "subcategory_lv2",
+    "height_cm",
+    "width_cm",
+    "length_cm"
+  ],
+  "24276": [
+    "excluded"
+  ],
+  "13100": [
+    "subcategory",
+    "height_cm",
+    "width_cm",
+    "length_cm"
+  ],
+  "12463": [
+    "subcategory",
+    "subcategory_lv2",
+    "isbn",
+    "author",
+    "publisher",
+    "language",
+    "book_format",
+    "is_pack"
+  ],
+  "24003": [
+    "excluded"
+  ],
+  "24002": [
+    "excluded"
+  ],
+  "24001": [
+    "excluded"
+  ],
+  "21000": [
+    "subcategory"
+  ],
+  "13200": [
+    "subcategory",
+    "subcategory_lv2"
+  ]
+}
