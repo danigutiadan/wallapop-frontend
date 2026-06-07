@@ -47,7 +47,8 @@ import { SearchModalComponent } from '../components/search-modal/search-modal.co
               <strong>Precio:</strong> 
               {{ search.min_price ? search.min_price + '€' : '0€' }} - {{ search.max_price ? search.max_price + '€' : '∞' }}
             </p>
-            <p *ngIf="search.category_ids"><strong>Categoría ID:</strong> {{ search.category_ids }}</p>
+            <p *ngIf="search.category_id"><strong>Categoría ID:</strong> {{ search.category_id }}</p>
+            <p *ngIf="search.subcategory_ids"><strong>Subcategoría ID:</strong> {{ search.subcategory_ids }}</p>
           </div>
         </div>
       </div>

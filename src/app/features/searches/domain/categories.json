@@ -14,20 +14,20 @@
     "name": "Motor y accesorios",
     "subcategories": [
       {
-        "id": 10167,
-        "name": "Recambios de coches y furgonetas"
-      },
-      {
         "id": 10164,
         "name": "GPS y electrónica"
       },
       {
         "id": 10165,
-        "name": "Herramientas mecánicas"
+        "name": "Herramientas"
+      },
+      {
+        "id": 10167,
+        "name": "Recambios de coches y furgonetas"
       },
       {
         "id": 10168,
-        "name": "Recambios de motos y quads"
+        "name": "Recambios de motos y cuatriciclos"
       },
       {
         "id": 10166,
@@ -68,11 +68,11 @@
   },
   {
     "id": 24200,
-    "name": "Informática y electrónica",
+    "name": "Tecnología y electrónica",
     "subcategories": [
       {
         "id": 10206,
-        "name": "Imagen: TVs y proyectores"
+        "name": "Imagen: televisores y proyectores"
       },
       {
         "id": 24149,
@@ -105,52 +105,52 @@
         "name": "Baloncesto"
       },
       {
-        "id": 10101,
-        "name": "Artesanía y manualidades"
+        "id": 10095,
+        "name": "Balonmano"
       },
       {
         "id": 10096,
-        "name": "Bicicletas estáticas"
+        "name": "Estáticas y elípticas"
       },
       {
         "id": 10097,
         "name": "Fitness, running y yoga"
       },
       {
+        "id": 10098,
+        "name": "Fútbol"
+      },
+      {
         "id": 10099,
         "name": "Golf"
-      },
-      {
-        "id": 10095,
-        "name": "Balonmano"
-      },
-      {
-        "id": 10102,
-        "name": "Montaña y esquí"
-      },
-      {
-        "id": 10105,
-        "name": "Otros deportes"
       },
       {
         "id": 10100,
         "name": "Juegos recreativos y de mesa"
       },
       {
-        "id": 10107,
-        "name": "Rugby"
+        "id": 10101,
+        "name": "Manualidades"
+      },
+      {
+        "id": 10102,
+        "name": "Montaña y esquí"
+      },
+      {
+        "id": 10103,
+        "name": "Natación y accesorios piscina"
+      },
+      {
+        "id": 10105,
+        "name": "Otros deportes"
       },
       {
         "id": 10106,
         "name": "Patinetes y patinaje"
       },
       {
-        "id": 10098,
-        "name": "Fútbol"
-      },
-      {
-        "id": 10103,
-        "name": "Natación y accesorios de piscina"
+        "id": 10107,
+        "name": "Rugby"
       },
       {
         "id": 10108,
@@ -158,7 +158,7 @@
       },
       {
         "id": 10109,
-        "name": "Voleibol"
+        "name": "Vóley"
       },
       {
         "id": 10104,
@@ -175,16 +175,16 @@
         "name": "Accesorios para bicicletas"
       },
       {
-        "id": 10058,
-        "name": "Componentes y recambios de bicicletas"
-      },
-      {
         "id": 10056,
         "name": "Bicicletas y triciclos"
       },
       {
+        "id": 10058,
+        "name": "Piezas y recambios de bici"
+      },
+      {
         "id": 10059,
-        "name": "Ropa y equipamiento de protección"
+        "name": "Protección y vestimenta"
       },
       {
         "id": 10057,
@@ -222,7 +222,7 @@
       },
       {
         "id": 24276,
-        "name": "Calefacción y aire acondicionado"
+        "name": "Calefacción y climatización"
       },
       {
         "id": 10118,
@@ -240,19 +240,19 @@
       },
       {
         "id": 10112,
-        "name": "Lavado y planchado"
-      },
-      {
-        "id": 10114,
-        "name": "Piezas de repuesto"
+        "name": "Lavandería y plancha"
       },
       {
         "id": 10113,
         "name": "Pequeños electrodomésticos"
       },
       {
+        "id": 10114,
+        "name": "Piezas y recambios"
+      },
+      {
         "id": 10115,
-        "name": "Placas vitrocerámicas"
+        "name": "Vitrocerámica"
       },
       {
         "id": 10441,
@@ -265,12 +265,12 @@
     "name": "Cine, libros y música",
     "subcategories": [
       {
-        "id": 24003,
-        "name": "Libros, cómics y revistas"
+        "id": 24002,
+        "name": "Cine y series"
       },
       {
-        "id": 24002,
-        "name": "Películas y series"
+        "id": 24003,
+        "name": "Libros, cómics y revistas"
       },
       {
         "id": 24001,
@@ -283,52 +283,52 @@
     "name": "Niños y bebés",
     "subcategories": [
       {
-        "id": 10178,
-        "name": "Alimentación del bebé"
-      },
-      {
-        "id": 10185,
-        "name": "Mobiliario para bebés"
-      },
-      {
-        "id": 10181,
-        "name": "Transporte del bebé"
-      },
-      {
         "id": 10177,
         "name": "Accesorios de baño"
       },
       {
-        "id": 10187,
-        "name": "Ropa para niños"
+        "id": 10178,
+        "name": "Alimentación del bebé"
       },
       {
-        "id": 10183,
-        "name": "Disfraces para niños"
+        "id": 10179,
+        "name": "Artículos de maternidad"
+      },
+      {
+        "id": 10180,
+        "name": "Artículos escolares"
       },
       {
         "id": 10182,
         "name": "Cunas y camas"
       },
       {
-        "id": 10189,
-        "name": "Tronas y andadores"
+        "id": 10183,
+        "name": "Disfraces infantiles"
       },
       {
-        "id": 10179,
-        "name": "Maternidad"
+        "id": 10184,
+        "name": "Juguetes, juegos y peluches"
+      },
+      {
+        "id": 10185,
+        "name": "Mobiliario infantil"
+      },
+      {
+        "id": 10187,
+        "name": "Ropa infantil"
       },
       {
         "id": 10188,
         "name": "Seguridad y cuidado"
       },
       {
-        "id": 10180,
-        "name": "Material escolar"
+        "id": 10181,
+        "name": "Transporte del bebé"
       },
       {
-        "id": 10184,
-        "name": "Juguetes, juegos y peluches"
+        "id": 10189,
+        "name": "Tronas y andadores"
       },
       {
         "id": 10186,
@@ -338,63 +338,63 @@
   },
   {
     "id": 18000,
-    "name": "Coleccionismo y arte",
+    "name": "Coleccionismo",
     "subcategories": [
       {
         "id": 10071,
         "name": "Antigüedades"
       },
       {
-        "id": 10075,
-        "name": "Coches y motos"
-      },
-      {
-        "id": 10081,
-        "name": "Monedas y billetes"
+        "id": 10072,
+        "name": "Artesanías y decoración"
       },
       {
         "id": 10073,
-        "name": "Material de escritorio"
+        "name": "Artículos de escritorio"
       },
       {
         "id": 10074,
         "name": "Banderas"
       },
       {
-        "id": 10072,
-        "name": "Artesanía y decoración"
-      },
-      {
-        "id": 10080,
-        "name": "Llaveros"
-      },
-      {
-        "id": 10079,
-        "name": "Imanes"
-      },
-      {
-        "id": 10083,
-        "name": "Cartas"
-      },
-      {
-        "id": 10085,
-        "name": "Postales y souvenirs"
+        "id": 10075,
+        "name": "Coches y motocicletas"
       },
       {
         "id": 10076,
         "name": "Coleccionismo deportivo"
       },
       {
+        "id": 10077,
+        "name": "Coleccionismo militar"
+      },
+      {
         "id": 10078,
-        "name": "Filatelia"
+        "name": "Filatelia y sellos"
+      },
+      {
+        "id": 10079,
+        "name": "Imanes"
+      },
+      {
+        "id": 10080,
+        "name": "Llaveros"
+      },
+      {
+        "id": 10081,
+        "name": "Monedas y billetes"
       },
       {
         "id": 10082,
-        "name": "Coleccionismo de juguetes"
+        "name": "Muñecos"
       },
       {
-        "id": 10077,
-        "name": "Coleccionismo militar"
+        "id": 10083,
+        "name": "Naipes"
+      },
+      {
+        "id": 10085,
+        "name": "Postales y suvenires"
       },
       {
         "id": 10086,
@@ -408,35 +408,23 @@
   },
   {
     "id": 19000,
-    "name": "Construcción",
+    "name": "Construcción y reformas",
     "subcategories": [
       {
         "id": 10138,
         "name": "Balcones"
       },
       {
-        "id": 10149,
-        "name": "Puertas y ventanas"
-      },
-      {
         "id": 10141,
-        "name": "Electricidad e iluminación del hogar"
-      },
-      {
-        "id": 10147,
-        "name": "Suelos y pavimentos"
-      },
-      {
-        "id": 10143,
-        "name": "Ferretería"
+        "name": "Electricidad e Iluminación"
       },
       {
         "id": 10142,
         "name": "Escaleras y andamios"
       },
       {
-        "id": 10148,
-        "name": "Pinturas y barnices"
+        "id": 10143,
+        "name": "Ferretería"
       },
       {
         "id": 10144,
@@ -447,6 +435,18 @@
         "name": "Madera y otros materiales"
       },
       {
+        "id": 10147,
+        "name": "Pavimentos y revestimientos"
+      },
+      {
+        "id": 10148,
+        "name": "Pinturas y barnices"
+      },
+      {
+        "id": 10149,
+        "name": "Puertas y ventanas"
+      },
+      {
         "id": 10146,
         "name": "Otros"
       }
@@ -454,11 +454,11 @@
   },
   {
     "id": 20000,
-    "name": "Agricultura e industria",
+    "name": "Industria y agricultura",
     "subcategories": [
       {
         "id": 10128,
-        "name": "Agricultura y ganadería"
+        "name": "Agricultura"
       },
       {
         "id": 10129,
@@ -471,12 +471,12 @@
     "name": "Empleo",
     "subcategories": [
       {
-        "id": 10117,
-        "name": "Ofertas de empleo"
+        "id": 10116,
+        "name": "Busco empleo"
       },
       {
-        "id": 10116,
-        "name": "Búsqueda de empleo"
+        "id": 10117,
+        "name": "Ofertas de empleo"
       }
     ]
   },
@@ -485,12 +485,20 @@
     "name": "Servicios",
     "subcategories": [
       {
-        "id": 10191,
-        "name": "Cuidadores y canguros"
+        "id": 10190,
+        "name": "Clases y entrenamiento"
       },
       {
-        "id": 10190,
-        "name": "Clases y lecciones"
+        "id": 10191,
+        "name": "Cuidadoras y niñeras"
+      },
+      {
+        "id": 10192,
+        "name": "Mudanzas y transporte"
+      },
+      {
+        "id": 10194,
+        "name": "Reparaciones"
       },
       {
         "id": 10195,
@@ -498,19 +506,11 @@
       },
       {
         "id": 10196,
-        "name": "Servicios domésticos"
-      },
-      {
-        "id": 10192,
-        "name": "Mudanzas y transportes"
-      },
-      {
-        "id": 10194,
-        "name": "Reparaciones"
+        "name": "Servicios del hogar"
       },
       {
         "id": 10197,
-        "name": "Terapias y crecimiento personal"
+        "name": "Terapia y crecimiento personal"
       },
       {
         "id": 10193,
