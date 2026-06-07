@@ -63,7 +63,7 @@ import categoryAttributesData from '../../../domain/category-attributes.json';
           </div>
           <div class="form-group">
             <label>Categoría</label>
-            <select [(ngModel)]="search.category_ids" (ngModelChange)="onCategoryChange()">
+            <select [(ngModel)]="search.category_id" (ngModelChange)="onCategoryChange()">
               <option value="">Todas las categorías</option>
               <option *ngFor="let cat of categories" [value]="cat.id">
                 {{ cat.name }}
@@ -75,7 +75,7 @@ import categoryAttributesData from '../../../domain/category-attributes.json';
         <div class="grid grid-2" *ngIf="subcategories.length > 0">
           <div class="form-group">
             <label>Subcategoría</label>
-            <select [(ngModel)]="search.object_type_id" (ngModelChange)="onSubcategoryChange()">
+            <select [(ngModel)]="search.subcategory_ids" (ngModelChange)="onSubcategoryChange()">
               <option value="">Cualquiera</option>
               <option *ngFor="let sub of subcategories" [value]="sub.id">
                 {{ sub.name }}
@@ -232,7 +232,7 @@ export class SearchModalComponent {
   }
 
   onCategoryChange() {
-    this.search.object_type_id = ''; // Reset subcategory when category changes
+    this.search.subcategory_ids = ''; // Reset subcategory when category changes
     this.updateSubcategories();
     this.updateAvailableAttributes();
   }
@@ -242,16 +242,16 @@ export class SearchModalComponent {
   }
 
   updateSubcategories() {
-    if (!this.search.category_ids) {
+    if (!this.search.category_id) {
       this.subcategories = [];
       return;
     }
-    const selectedCat = this.categories.find(c => c.id.toString() === this.search.category_ids?.toString());
+    const selectedCat = this.categories.find(c => c.id.toString() === this.search.category_id?.toString());
     this.subcategories = selectedCat?.subcategories || [];
   }
 
   updateAvailableAttributes() {
-    const activeId = this.search.object_type_id || this.search.category_ids;
+    const activeId = this.search.subcategory_ids || this.search.category_id;
     if (activeId) {
       this.availableAttributes = (categoryAttributesData as any)[activeId.toString()] || [];
     } else {

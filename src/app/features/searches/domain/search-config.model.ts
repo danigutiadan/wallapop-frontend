@@ -13,8 +13,8 @@ export interface SearchConfig {
   longitude?: number;
   distance_in_km?: number;
   condition?: string;
-  category_ids?: string;
-  object_type_id?: string;
+  category_id?: string;
+  subcategory_ids?: string;
   extra_filters?: Record<string, string>;
   // UI ONLY
   ui_extra_filters?: ExtraFilter[];
