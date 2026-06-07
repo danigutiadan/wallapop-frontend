@@ -72,12 +72,12 @@ import categoryAttributesData from '../../../domain/category-attributes.json';
           </div>
         </div>
 
-        <div class="grid grid-2" *ngIf="subcategories.length > 0">
+        <div class="grid grid-2" *ngFor="let level of subcategoryLevels; let idx = index">
           <div class="form-group">
-            <label>Subcategoría</label>
-            <select [(ngModel)]="search.subcategory_ids" (ngModelChange)="onSubcategoryChange()">
+            <label>Subcategoría {{ idx > 0 ? 'Nivel ' + (idx + 1) : '' }}</label>
+            <select [(ngModel)]="selectedSubcategories[idx]" (ngModelChange)="onSubcategoryLevelChange(idx)">
               <option value="">Cualquiera</option>
-              <option *ngFor="let sub of subcategories" [value]="sub.id">
+              <option *ngFor="let sub of level" [value]="sub.id">
                 {{ sub.name }}
               </option>
             </select>
@@ -223,31 +223,119 @@ export class SearchModalComponent {
   @Output() close = new EventEmitter<void>();
 
   categories = categoriesData;
-  subcategories: {id: number, name: string}[] = [];
+  subcategoryLevels: any[][] = [];
+  selectedSubcategories: string[] = [];
   availableAttributes: string[] = [];
 
   ngOnInit() {
-    this.updateSubcategories();
+    this.initializeSubcategoryLevels();
     this.updateAvailableAttributes();
   }
 
   onCategoryChange() {
     this.search.subcategory_ids = ''; // Reset subcategory when category changes
-    this.updateSubcategories();
+    this.selectedSubcategories = [];
+    this.subcategoryLevels = [];
+
+    if (this.search.category_id) {
+      const selectedCat = this.categories.find(c => c.id.toString() === this.search.category_id?.toString());
+      if (selectedCat && selectedCat.subcategories && selectedCat.subcategories.length > 0) {
+        this.subcategoryLevels.push(selectedCat.subcategories);
+      }
+    }
+
     this.updateAvailableAttributes();
   }
 
-  onSubcategoryChange() {
+  onSubcategoryLevelChange(levelIdx: number) {
+    // Truncate levels below the changed one
+    this.subcategoryLevels.splice(levelIdx + 1);
+    this.selectedSubcategories.splice(levelIdx + 1);
+
+    const selectedId = this.selectedSubcategories[levelIdx];
+
+    // Update main model with the deepest selected subcategory
+    if (selectedId) {
+      this.search.subcategory_ids = selectedId;
+
+      // Find the selected node and its children
+      const currentLevel = this.subcategoryLevels[levelIdx];
+      const selectedSub = currentLevel.find((s: any) => s.id.toString() === selectedId.toString());
+
+      if (selectedSub && selectedSub.subcategories && selectedSub.subcategories.length > 0) {
+        this.subcategoryLevels.push(selectedSub.subcategories);
+      }
+    } else {
+      // If "Cualquiera" is selected, fallback to the previous level's selection
+      if (levelIdx > 0) {
+        this.search.subcategory_ids = this.selectedSubcategories[levelIdx - 1];
+      } else {
+        this.search.subcategory_ids = '';
+      }
+    }
+
     this.updateAvailableAttributes();
   }
 
-  updateSubcategories() {
+  initializeSubcategoryLevels() {
     if (!this.search.category_id) {
-      this.subcategories = [];
+      this.subcategoryLevels = [];
+      this.selectedSubcategories = [];
       return;
     }
+
     const selectedCat = this.categories.find(c => c.id.toString() === this.search.category_id?.toString());
-    this.subcategories = selectedCat?.subcategories || [];
+    if (!selectedCat) return;
+
+    this.subcategoryLevels = [];
+    this.selectedSubcategories = [];
+
+    let currentChildren = selectedCat.subcategories;
+    let targetId = this.search.subcategory_ids;
+
+    if (!targetId || !currentChildren || currentChildren.length === 0) {
+       if(currentChildren && currentChildren.length > 0){
+           this.subcategoryLevels.push(currentChildren);
+       }
+       return;
+    }
+
+    // Function to find path to target subcategory
+    const findPath = (nodes: any[], target: string, currentPath: any[]): any[] | null => {
+      for (const node of nodes) {
+        const path = [...currentPath, node];
+        if (node.id.toString() === target.toString()) {
+          return path;
+        }
+        if (node.subcategories && node.subcategories.length > 0) {
+          const found = findPath(node.subcategories, target, path);
+          if (found) return found;
+        }
+      }
+      return null;
+    };
+
+    const path = findPath(currentChildren, targetId, []);
+
+    if (path) {
+      let childrenToPush = currentChildren;
+      for (let i = 0; i < path.length; i++) {
+        const node = path[i];
+        this.subcategoryLevels.push(childrenToPush);
+        this.selectedSubcategories.push(node.id.toString());
+        childrenToPush = node.subcategories || [];
+      }
+
+      // If the target node itself has children, show them as the next empty level
+      if (childrenToPush.length > 0) {
+        this.subcategoryLevels.push(childrenToPush);
+      }
+    } else {
+      // Fallback
+      if(currentChildren && currentChildren.length > 0){
+           this.subcategoryLevels.push(currentChildren);
+      }
+    }
   }
 
   updateAvailableAttributes() {
