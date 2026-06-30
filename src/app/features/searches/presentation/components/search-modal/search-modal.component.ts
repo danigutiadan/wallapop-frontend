@@ -12,9 +12,20 @@ import categoryAttributesData from '../../../domain/category-attributes.json';
   template: `
     <div class="modal-overlay">
       <div class="glass-card modal-content">
-        <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 600;">
-          {{ isEditing ? 'Editar Búsqueda' : 'Nueva Búsqueda' }}
-        </h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 600; margin: 0;">
+            {{ isEditing ? 'Editar Búsqueda' : 'Nueva Búsqueda' }}
+          </h2>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <label class="switch" style="margin-bottom: 0;" title="Estado del filtro">
+              <input type="checkbox" [(ngModel)]="search.enabled">
+              <span class="slider"></span>
+            </label>
+            <span style="font-size: 0.875rem; font-weight: 500;" [ngStyle]="{'color': search.enabled !== false ? 'var(--success)' : 'var(--danger)'}">
+              {{ search.enabled !== false ? 'Habilitado' : 'Deshabilitado' }}
+            </span>
+          </div>
+        </div>
         
         <div class="form-group">
           <label>Nombre Identificativo *</label>

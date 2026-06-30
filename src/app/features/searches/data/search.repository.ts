@@ -34,6 +34,7 @@ export class SearchRepository {
 
         return {
           ...s,
+          enabled: s.enabled !== undefined ? s.enabled : true,
           category_id,
           subcategory_ids,
           ui_extra_filters
@@ -63,7 +64,11 @@ export class SearchRepository {
           }
         }
       }
-      const cleanS = { ...s, extra_filters };
+      const cleanS = {
+        ...s,
+        enabled: s.enabled !== undefined ? s.enabled : true,
+        extra_filters
+      };
       delete cleanS.ui_extra_filters;
       delete cleanS.category_id;
       delete cleanS.subcategory_ids;

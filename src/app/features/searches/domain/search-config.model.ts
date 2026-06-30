@@ -4,6 +4,7 @@ export interface ExtraFilter {
 }
 
 export interface SearchConfig {
+  enabled?: boolean;
   name: string;
   keywords?: string;
   min_price?: number;

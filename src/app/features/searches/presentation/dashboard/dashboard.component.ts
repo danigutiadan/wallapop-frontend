@@ -32,10 +32,18 @@ import { SearchModalComponent } from '../components/search-modal/search-modal.co
       </div>
 
       <div class="grid grid-2 grid-3" *ngIf="!loading && searches.length > 0">
-        <div class="glass-card" *ngFor="let search of searches; let i = index">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
-            <h3 style="font-size: 1.25rem; font-weight: 600;">{{ search.name }}</h3>
-            <div>
+        <div class="glass-card" [ngStyle]="{'opacity': search.enabled !== false ? '1' : '0.6'}" *ngFor="let search of searches; let i = index">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+              <label class="switch" style="margin-bottom: 0;" title="Habilitar/Deshabilitar filtro">
+                <input type="checkbox" [checked]="search.enabled !== false" (change)="toggleFilterEnabled(i)">
+                <span class="slider"></span>
+              </label>
+              <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0;">{{ search.name }}</h3>
+              <span *ngIf="search.enabled !== false" style="font-size: 0.75rem; padding: 0.15rem 0.5rem; background: rgba(16, 185, 129, 0.2); color: var(--success); border-radius: 4px; border: 1px solid var(--success);">Activo</span>
+              <span *ngIf="search.enabled === false" style="font-size: 0.75rem; padding: 0.15rem 0.5rem; background: rgba(239, 68, 68, 0.2); color: var(--danger); border-radius: 4px; border: 1px solid var(--danger);">Deshabilitado</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-shrink: 0;">
               <button class="btn btn-ghost" style="padding: 0.25rem 0.5rem;" (click)="editSearch(i)">Editar</button>
               <button class="btn btn-danger" style="padding: 0.25rem 0.5rem;" (click)="deleteSearch(i)">Borrar</button>
             </div>
@@ -75,7 +83,7 @@ export class DashboardComponent implements OnInit {
   saving = false;
   
   isModalOpen = false;
-  currentSearch: SearchConfig = { name: '', order_by: 'newest', ui_extra_filters: [] };
+  currentSearch: SearchConfig = { name: '', enabled: true, order_by: 'newest', ui_extra_filters: [] };
   currentIndex = -1;
 
   async ngOnInit() {
@@ -92,11 +100,13 @@ export class DashboardComponent implements OnInit {
     this.loading = false;
   }
 
-  async saveConfig() {
+  async saveConfig(showAlert: boolean = true) {
     this.saving = true;
     try {
       await this.searchRepo.saveSearches(this.searches);
-      alert('Configuración guardada exitosamente!');
+      if (showAlert) {
+        alert('Configuración guardada exitosamente!');
+      }
     } catch(err) {
       console.error(err);
       alert('Error al guardar en Firebase.');
@@ -104,14 +114,22 @@ export class DashboardComponent implements OnInit {
     this.saving = false;
   }
 
+  async toggleFilterEnabled(index: number) {
+    this.searches[index].enabled = !(this.searches[index].enabled !== false);
+    await this.saveConfig(false);
+  }
+
   openNewSearch() {
-    this.currentSearch = { name: '', order_by: 'newest', ui_extra_filters: [] };
+    this.currentSearch = { name: '', enabled: true, order_by: 'newest', ui_extra_filters: [] };
     this.currentIndex = -1;
     this.isModalOpen = true;
   }
 
   editSearch(index: number) {
     this.currentSearch = JSON.parse(JSON.stringify(this.searches[index]));
+    if (this.currentSearch.enabled === undefined) {
+      this.currentSearch.enabled = true;
+    }
     if (!this.currentSearch.ui_extra_filters) {
       this.currentSearch.ui_extra_filters = [];
     }
