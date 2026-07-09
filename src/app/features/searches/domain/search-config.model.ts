@@ -16,6 +16,7 @@ export interface SearchConfig {
   condition?: string;
   category_id?: string;
   subcategory_ids?: string;
+  min_reviews?: number;
   extra_filters?: Record<string, string>;
   // UI ONLY
   ui_extra_filters?: ExtraFilter[];

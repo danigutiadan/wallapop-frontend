@@ -72,6 +72,11 @@ export class SearchRepository {
       delete cleanS.ui_extra_filters;
       delete cleanS.category_id;
       delete cleanS.subcategory_ids;
+      if (cleanS.min_reviews === null || cleanS.min_reviews === undefined || (cleanS.min_reviews as any) === '') {
+        delete cleanS.min_reviews;
+      } else {
+        cleanS.min_reviews = Number(cleanS.min_reviews);
+      }
       return cleanS;
     });
     

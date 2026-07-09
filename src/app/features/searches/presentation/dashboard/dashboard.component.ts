@@ -57,6 +57,7 @@ import { SearchModalComponent } from '../components/search-modal/search-modal.co
             </p>
             <p *ngIf="search.category_id"><strong>Categoría ID:</strong> {{ search.category_id }}</p>
             <p *ngIf="search.subcategory_ids"><strong>Subcategoría ID:</strong> {{ search.subcategory_ids }}</p>
+            <p *ngIf="search.min_reviews !== undefined && search.min_reviews !== null"><strong>Valoraciones mínimas:</strong> {{ search.min_reviews }}</p>
           </div>
         </div>
       </div>

@@ -94,6 +94,13 @@ import categoryAttributesData from '../../../domain/category-attributes.json';
             </select>
           </div>
         </div>
+
+        <div class="grid grid-2">
+          <div class="form-group">
+            <label>Valoraciones Mínimas Vendedor</label>
+            <input type="number" [(ngModel)]="search.min_reviews" placeholder="Ej: 10">
+          </div>
+        </div>
         
         <hr style="border: 0; border-top: 1px solid var(--border); margin: 2rem 0;">
         
