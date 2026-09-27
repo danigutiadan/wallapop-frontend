@@ -26,12 +26,12 @@ import { SearchModalComponent } from '../components/search-modal/search-modal.co
         <p style="color: var(--text-muted)">Cargando configuración...</p>
       </div>
 
-      <div *ngIf="!loading && searches.length === 0" style="text-align: center; padding: 3rem; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border);">
+      <div *ngIf="!loading && (!searches || searches.length === 0)" style="text-align: center; padding: 3rem; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border);">
         <p style="color: var(--text-muted); margin-bottom: 1rem;">No hay búsquedas configuradas.</p>
         <button class="btn btn-primary" (click)="openNewSearch()">Crear la primera</button>
       </div>
 
-      <div class="grid grid-2 grid-3" *ngIf="!loading && searches.length > 0">
+      <div class="grid grid-2 grid-3" *ngIf="!loading && searches && searches.length > 0">
         <div class="glass-card" [ngStyle]="{'opacity': search.enabled !== false ? '1' : '0.6'}" *ngFor="let search of searches; let i = index">
           <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; gap: 1rem;">
             <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
@@ -40,8 +40,8 @@ import { SearchModalComponent } from '../components/search-modal/search-modal.co
                 <span class="slider"></span>
               </label>
               <h3 style="font-size: 1.25rem; font-weight: 600; margin: 0;">{{ search.name }}</h3>
-              <span *ngIf="search.enabled !== false" style="font-size: 0.75rem; padding: 0.15rem 0.5rem; background: rgba(16, 185, 129, 0.2); color: var(--success); border-radius: 4px; border: 1px solid var(--success);">Activo</span>
-              <span *ngIf="search.enabled === false" style="font-size: 0.75rem; padding: 0.15rem 0.5rem; background: rgba(239, 68, 68, 0.2); color: var(--danger); border-radius: 4px; border: 1px solid var(--danger);">Deshabilitado</span>
+              <span *ngIf="search.enabled !== false" style="font-size: 0.75rem; padding: 0.15rem 0.5rem; background: rgba(16, 185, 129, 0.2); color: var(--success); border-radius: 4px; border: 1px solid var(--success)">Activo</span>
+              <span *ngIf="search.enabled === false" style="font-size: 0.75rem; padding: 0.15rem 0.5rem; background: rgba(239, 68, 68, 0.2); color: var(--danger); border-radius: 4px; border: 1px solid var(--danger)">Deshabilitado</span>
             </div>
             <div style="display: flex; gap: 0.5rem; flex-shrink: 0;">
               <button class="btn btn-ghost" style="padding: 0.25rem 0.5rem;" (click)="editSearch(i)">Editar</button>
@@ -77,7 +77,9 @@ export class DashboardComponent implements OnInit {
   private authService = inject(AuthService);
   private searchRepo = inject(SearchRepository);
   
-  userEmail = this.authService.currentUser?.email;
+  get userEmail(): string | null | undefined {
+    return this.authService.currentUser?.email;
+  }
   
   searches: SearchConfig[] = [];
   loading = true;
@@ -93,10 +95,11 @@ export class DashboardComponent implements OnInit {
 
   async loadConfig() {
     try {
-      this.searches = await this.searchRepo.getSearches();
+      this.searches = (await this.searchRepo.getSearches()) || [];
     } catch (error: any) {
       console.error("Error loading config:", error);
       alert('Error al cargar datos desde Firebase: ' + (error.message || error));
+      this.searches = [];
     }
     this.loading = false;
   }
